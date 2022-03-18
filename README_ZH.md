@@ -8,7 +8,7 @@
 
 ```yaml
 dependencies:
-  x_responsive: ^0.1.0
+  x_responsive: ^0.2.0
 ```
 
 ## 使用

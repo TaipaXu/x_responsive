@@ -8,7 +8,7 @@ English | [中文](./README_ZH.md)
 
 ```yaml
 dependencies:
-  x_responsive: ^0.1.0
+  x_responsive: ^0.2.0
 ```
 
 ## Usage
