@@ -1,7 +1,7 @@
 import 'dart:io' as io;
 import 'package:flutter/material.dart';
 
-enum Breakpoint { xs, sm, md, lg, xl }
+enum Breakpoint { xs, sm, md, lg, xl, infinity }
 enum Platform { all, linux, macos, windows, android, ios, fuchsia }
 
 class Condition {
@@ -10,9 +10,10 @@ class Condition {
   static const double breakpointMd = 768;
   static const double breakpointLg = 992;
   static const double breakpointXl = 1200;
+  static const double breakpointInfinity = double.maxFinite;
 
   double _min = breakpointXs;
-  double _max = breakpointXl;
+  double _max = breakpointInfinity;
   List<Platform> _platforms = [Platform.all];
 
   double _getPoint(Breakpoint point) {
@@ -27,6 +28,8 @@ class Condition {
         return breakpointLg;
       case Breakpoint.xl:
         return breakpointXl;
+      case Breakpoint.infinity:
+        return breakpointInfinity;
     }
   }
 
@@ -62,11 +65,9 @@ class Condition {
 
   void screenUp(Breakpoint min) {
     _min = _getPoint(min);
-    _max = _getPoint(Breakpoint.xl);
   }
 
   void screenDown(Breakpoint max) {
-    _min = _getPoint(Breakpoint.xs);
     _max = _getPoint(max);
   }
 
